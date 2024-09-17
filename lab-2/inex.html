@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networks</title>
+</head>
+<body>
+
+    <h1 align="center">Network Capability in Localizing Node Failure Via of End-End Path Measurement</h1>
+    <p>EFFECTIVE monitoring of network performance is essential for network operators in building reliable communication networks that are robust to service disruptions. In order to achieve this goal, the monitoring infrastructure must be able to detect network misbehaviors (e.g., unusually high loss/latency, unreachability) and localize the sources of the anomaly (e.g., malfunction of certain routers) in an accurate and timely manner.
+        Knowledge of where problematic network elements reside in the network is particularly useful for fast service recovery, e.g., the network operator can migrate affected services and/or reroute traffic. However, localizing network elements that cause a service disruption can be challenging.
+         <p>The straightforward approach of directly monitoring the health of individual elements (e.g., by collecting topology update reports) is not always feasible due to the lack of protocol interoperability (e.g., in hybrid networks such as cellular wireless ad hoc networks), or limited access to network internal nodes (e.g., in multi-domain networks). Moreover, built-in monitoring mechanism running on network elements cannot detect problems caused by misconfigured/unanticipated interactions between network layers, where end-to-end communication is disrupted but individual network elements along the path remain functional (i.e., silent failures) [1]. 
+         These limitations call for a different approach that can diagnose the health of network elements from the health of end-to-end communications perceived between measurement points.One such approach, generally known as network tomography [2], focuses on inferring internal network characteristics based on end-to-end performance measurements from a subset of nodes with monitoring capabilities, referred to as monitors. Unlike direct measurement, network tomography only relies on end-to-end performance (e.g., path connectivity) experienced by data packets, thus addressing issues such as overhead, lack of protocol support, and silent failures.</p> In cases where the network characteristic of interest is binary (e.g., normal or failed), this approach is known as Boolean network tomography. 
+          <mark>For example, if two nodes always appear together in measurement paths, then upon observing failures of all these paths, we can at most deduce that one of these nodes (or both) has failed but cannot determine which one. Because there are often multiple explanations for given path failures, existing work mostly focuses on finding the minimum set of failed nodes that most probably involves failed nodes. Such an approach, however, does not guarantee that nodes in this minimum set have failed or that nodes outside the set have not. Generally, to distinguish between two possible failure sets, there must exist a measurement path that traverses one and only one of these two sets. There is, however, a lack of understanding of what this requires in terms of observable network properties such as topology, monitor placement, and measurement routing.</mark>
+             On the other hand, even if there exists ambiguity in failure localization across the entire network, it is still possible to uniquely localize node failures in a specific sub-network (e.g., sub-network with a large fraction of monitors). To determine such unique failure localization in sub-networks, we need to understand how it is related to network properties. 
+</p>
+    <h2 align="center">EXISTING SYSTEM</h2>
+    <p>Existing work can be broadly classified into single failure localization and multiple failure localization.
+        Single failure localization assumes that multiple simultaneous failures happen with negligible probability. Under this assumption, propose efficient algorithms for monitor placement such that any single failure can be detected and localized.
+        To improve the resolution in characterizing failures, range tomography in not only localizes the failure, but also estimates its severity (e.g., congestion level). 
+        Multiple failure localization faces inherent uncertainty. Using this approach, propose solutions for networks with tree topologies, which are later extended to general topologies in [1]. 
+         In a Bayesian formulation, proposes a two-stage solution which first estimates the failure (loss rate above threshold) probabilities of different links and then infers the most likely failure set for subsequent measurements. By augmenting path measurements with (partially) available control plane information (e.g., routing messages), propose a greedy heuristic for troubleshooting network unreachability in multi- AS (Autonomous System) networks that has better accuracy than using only path measurements.
+        </p>
+
+    <h2 align="center">PROPOSED SYSTEM</h2>
+    <p>In the proposed system, the system studies an application of Boolean network tomography to localize node failures from measurements of path states1.Under the assumption that a measurement path is normal if and only if all nodes on this path behave normally.
+        We formulate the problem as a system of Boolean equations, where the unknown variables are the binary node states, and the known constants are the observed states of measurement paths. 
+        The goal of Boolean network tomography is essentially to solve this system of Boolean equations.
+        Largest node set which failures can be restricted is selected. And by using probing mechanisms we send the data.
+       <ul>
+        <li>1.Controllable Arbitrary Path Probing.(CAP)</li>
+        <li>2.Controllable Simple Path Probing.(CSP)</li>
+        <li>3.Uncontrollable Probing.(UP)</li> 
+       </ul>      
+    </p>
+   <h2 align="center">REQUIREMENTS  ANALYSIS</h2>
+   <p>
+    Requirement Gathering and analysis − All possible requirements of  the System to be developed are captured in this phase and documented in a  requirement specification document
+<p>
+<b>System Design</b> The requirement specifications from first phase are studied in this
+phase and the system design is prepared. This system design helps in specifying 
+hardware and system requirements and helps in defining the overall system 
+architecture.</p>
+
+<b>Implementation </b> With inputs from the system design, the system is first 
+developed in small programs called units, which are  integrated in the next phase. 
+Each unit is developed and tested for its functionality, which is referred to as Unit Testing.
+
+   </p>
+    <h1 align="center">Conclusion</h1>
+    <p>
+        We studied the fundamental capability of a network in localizing failed nodes from binary measurements (normal/failed) of paths between monitors. We proposed two novel measures: maximum identifiability index that quantifies the scale of uniquely localizable failures writ a given node set, and maximum identifiable set that quantifies the scope of unique localization under a given scale of failures. We showed that both measures are functions of the maximum identifiability index per node. <b>We studied these measures for three types of probing mechanisms that offer different controllability of probes and complexity of implementation. For each probing mechanism, we established necessary/sufficient conditions for unique failure localization based on network topology, placement of monitors, constraints on measurement paths, and scale of failures.</b>
+        We further showed that these conditions lead to tight upper/lower bounds on the maximum identifiability index, as well as inner/outer bounds on the maximum identifiable set. We showed that both the conditions and the bounds can be evaluated efficiently using polynomial time algorithms.
+      Our evaluations on random and real network topologies showed that probing mechanisms that allow monitors to control the routing of probes have significantly better capability to uniquely localize failures.</p>
+
+</body>
+</html>
+<footer>
+    <p>Last updated: 
+        <span id="lastModified"></span>
+    </p>
+</footer>
+<script type="text/javascript">
+     var x = document.lastModified;
+     document.getElementById('lastModified').textContent = x;
+</script>
